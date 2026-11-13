@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="pt-AO">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#173b39">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Bloom English">
+  <meta name="description" content="Bloom English: um espaço leve, prático e offline para aprender inglês ao teu ritmo.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; manifest-src 'self'">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="./icon-180.png">
+  <link rel="stylesheet" href="./styles.css">
+  <title>Bloom English — um pouco todos os dias</title>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#inicio" data-go="home" aria-label="Bloom English, ir ao início">
+        <span class="brand-mark" aria-hidden="true"><span>B</span><i></i></span>
+        <span class="brand-copy"><strong>Bloom English</strong><small>UM POUCO TODOS OS DIAS</small></span>
+      </a>
+      <div class="topbar-actions">
+        <span class="connection-pill" id="connectionStatus"><span class="status-dot"></span><span id="connectionText">Pronto offline</span></span>
+        <button class="utility-button music-toggle" id="musicToggle" type="button" aria-pressed="false" aria-label="Ligar ou desligar a melodia ambiente">
+          <span class="music-symbol" aria-hidden="true">♫</span><span class="utility-label" id="musicLabel">Som ambiente</span>
+        </button>
+        <button class="utility-button share-button" id="shareApp" type="button" aria-label="Partilhar Bloom English"><span aria-hidden="true">↗</span><span class="utility-label">Partilhar</span></button>
+        <button class="install-button" id="installButton" type="button">Instalar</button>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="side-nav" aria-label="Navegação principal">
+        <p class="nav-caption">O TEU ESPAÇO</p>
+        <button class="nav-item is-current" type="button" data-go="home" aria-current="page"><span class="nav-glyph" aria-hidden="true">⌂</span><span>Início</span></button>
+        <button class="nav-item" type="button" data-go="learn"><span class="nav-glyph" aria-hidden="true">✦</span><span>Aulas</span></button>
+        <button class="nav-item" type="button" data-go="games"><span class="nav-glyph" aria-hidden="true">◈</span><span>Jogos</span></button>
+        <button class="nav-item" type="button" data-go="words"><span class="nav-glyph letters" aria-hidden="true">Aa</span><span>Palavras</span></button>
+        <button class="nav-item" type="button" data-go="progress"><span class="nav-glyph" aria-hidden="true">↗</span><span>Progresso</span></button>
+        <button class="nav-item" type="button" data-go="creator"><span class="nav-glyph" aria-hidden="true">♡</span><span>Criador</span></button>
+        <div class="side-note">
+          <span class="side-note-spark" aria-hidden="true">✳</span>
+          <p>Sem pressa.<br><strong>Um passo de cada vez.</strong></p>
+        </div>
+        <p class="side-footer">FEITO COM CARINHO · DANY</p>
+      </aside>
+
+      <main class="main-content" id="mainContent" tabindex="-1">
+        <section class="view is-active" id="view-home" data-view="home" aria-labelledby="homeTitle">
+          <div class="page-intro home-intro">
+            <div>
+              <p class="eyebrow" id="welcomeLine">BEM-VINDA AO TEU ESPAÇO DE PRÁTICA</p>
+              <h1 id="homeTitle">O teu inglês vai <em>florescer.</em></h1>
+              <p class="page-lede">Aprende com frases reais, pequenas vitórias e espaço para recomeçar sempre que precisares.</p>
+            </div>
+            <div class="streak-card" aria-label="Sequência de dias de estudo">
+              <span class="streak-icon" aria-hidden="true">✦</span>
+              <strong id="streakCount">0</strong>
+              <span id="streakLabel">dias de prática</span>
+            </div>
+          </div>
+
+          <section class="hero-card" aria-labelledby="heroTitle">
+            <div class="hero-copy">
+              <p class="eyebrow light-eyebrow">COMEÇA PELO TEU PONTO DE PARTIDA</p>
+              <h2 id="heroTitle">Inglês que se usa<br>na vida real.</h2>
+              <p>Faz um mini-teste, descobre uma estimativa do teu nível e segue um percurso feito de aulas curtas, exemplos e prática.</p>
+              <div class="hero-actions">
+                <button class="button button-lime" type="button" data-action="start-test">Fazer mini-teste <span aria-hidden="true">→</span></button>
+                <button class="button button-ghost" type="button" data-go="learn">Explorar aulas</button>
+              </div>
+              <p class="hero-footnote">12 perguntas · cerca de 4 minutos · sem classificação oficial</p>
+            </div>
+            <div class="hero-art" aria-hidden="true">
+              <span class="art-orbit orbit-one"></span><span class="art-orbit orbit-two"></span>
+              <span class="art-sun"></span>
+              <span class="art-leaf leaf-one"></span><span class="art-leaf leaf-two"></span><span class="art-leaf leaf-three"></span>
+              <span class="art-spark spark-one">✦</span><span class="art-spark spark-two">✧</span>
+              <span class="art-stem"></span>
+            </div>
+          </section>
+
+          <div class="dashboard-grid">
+            <article class="panel level-panel">
+              <div class="panel-topline"><span class="panel-icon level-icon" aria-hidden="true">✦</span><span class="panel-kicker">O TEU PONTO DE PARTIDA</span></div>
+              <div class="level-display" id="levelDisplay">Ainda por descobrir</div>
+              <p class="panel-description" id="levelDescription">O mini-teste dá-te uma estimativa inicial e recomenda por onde começar.</p>
+              <button class="text-button" type="button" data-action="start-test"><span id="levelActionText">Fazer o mini-teste</span><span aria-hidden="true">→</span></button>
+            </article>
+            <article class="panel daily-panel">
+              <div class="panel-topline"><span class="panel-icon daily-icon" aria-hidden="true">◷</span><span class="panel-kicker">PEQUENAS VITÓRIAS</span></div>
+              <div class="daily-number"><strong id="todayXp">0</strong><span> / 30 XP</span></div>
+              <progress class="progress-bar" id="dailyProgress" max="30" value="0" aria-label="Progresso da meta diária"></progress>
+              <p class="panel-description">Uma meta leve para manter o ritmo. Podes parar quando quiseres.</p>
+            </article>
+            <article class="panel word-day-panel">
+              <div class="panel-topline"><span class="panel-icon word-icon" aria-hidden="true">Aa</span><span class="panel-kicker">PALAVRA DO DIA</span></div>
+              <div class="word-day-title"><strong id="wordOfDay">—</strong><button class="icon-button" id="speakWordOfDay" type="button" aria-label="Ouvir palavra do dia">▶</button></div>
+              <p class="word-day-translation" id="wordOfDayTranslation">—</p>
+              <p class="word-day-example" id="wordOfDayExample"></p>
+            </article>
+          </div>
+
+          <section class="exam-note" aria-labelledby="examNoteTitle">
+            <div class="exam-note-mark" aria-hidden="true">✳</div>
+            <div class="exam-note-copy">
+              <p class="eyebrow">UM APOIO GENTIL PARA A P2 E A P3</p>
+              <h2 id="examNoteTitle">Estudar com intenção vale mais do que só reler.</h2>
+              <p>Experimenta responder sem olhar para os apontamentos, confirmar o que falhou e voltar a esse ponto amanhã. Para as provas da universidade, segue sempre o programa e as orientações do docente; Bloom ajuda sobretudo com inglês e hábitos de prática.</p>
+            </div>
+            <button class="button button-dark" type="button" data-go="learn">Ver percurso <span aria-hidden="true">→</span></button>
+          </section>
+        </section>
+
+        <section class="view" id="view-learn" data-view="learn" aria-labelledby="learnTitle">
+          <div class="page-heading">
+            <p class="eyebrow">APRENDER · PRATICAR · VOLTAR</p>
+            <h1 id="learnTitle">Aulas pequenas,<br><em>progresso real.</em></h1>
+            <p class="page-lede">Cada aula junta uma ideia simples, exemplos em contexto e exercícios com feedback imediato.</p>
+          </div>
+          <div class="recommendation-banner" id="recommendationBanner">
+            <span class="recommendation-star" aria-hidden="true">✦</span>
+            <div><strong id="recommendationTitle">Começa pelo essencial</strong><p id="recommendationText">Faz o mini-teste para receber uma recomendação mais ajustada.</p></div>
+            <button class="text-button" type="button" data-action="start-test">Mini-teste <span aria-hidden="true">→</span></button>
+          </div>
+          <div class="section-label-row"><h2>O teu percurso</h2><span class="muted" id="lessonCountLabel">6 aulas curtas</span></div>
+          <div class="lesson-grid" id="lessonGrid"></div>
+          <section class="study-loop-card">
+            <div class="loop-number">01</div><div><p class="eyebrow">UMA ROTINA CURTA PARA REVISAR</p><h2>Recorda. Confirma. Revisa.</h2><p>Fecha os apontamentos e tenta explicar uma ideia em voz alta. Depois compara com o material da cadeira e marca o que precisa de voltar a estudar. Esta prática ajuda a revelar lacunas; não substitui os conteúdos nem as indicações do professor.</p></div>
+          </section>
+        </section>
+
+        <section class="view" id="view-games" data-view="games" aria-labelledby="gamesTitle">
+          <div class="page-heading">
+            <p class="eyebrow">JOGOS · SEM PONTUAÇÃO DE PRESSÃO</p>
+            <h1 id="gamesTitle">Brinca com<br><em>as palavras.</em></h1>
+            <p class="page-lede">Treinos rápidos, com respostas e explicações. Repetir é permitido — errar também faz parte.</p>
+          </div>
+          <div class="games-grid" id="gamesMenu">
+            <article class="game-card sprint-card">
+              <div class="game-illustration sprint-art" aria-hidden="true"><span>word</span><i>✦</i></div>
+              <p class="eyebrow">VOCABULÁRIO · 5 RONDAS</p><h2>Word Sprint</h2>
+              <p>Vê uma palavra em português e escolhe a melhor opção em inglês.</p>
+              <div class="game-meta"><span>⭐ 5 perguntas</span><span>↗ XP até ao limite diário</span></div>
+              <button class="button button-dark" id="startSprint" type="button">Jogar agora <span aria-hidden="true">→</span></button>
+            </article>
+            <article class="game-card shuffle-card">
+              <div class="game-illustration shuffle-art" aria-hidden="true"><span>make</span><span>it</span><span>flow</span></div>
+              <p class="eyebrow">FRASES · 4 RONDAS</p><h2>Sentence Shuffle</h2>
+              <p>Organiza as palavras para formar frases naturais em inglês.</p>
+              <div class="game-meta"><span>✳ Ordem das palavras</span><span>↗ Feedback imediato</span></div>
+              <button class="button button-dark" id="startShuffle" type="button">Jogar agora <span aria-hidden="true">→</span></button>
+            </article>
+          </div>
+          <section class="game-stage panel" id="gameStage" hidden aria-live="polite"></section>
+          <p class="offline-note"><span aria-hidden="true">◉</span> Os jogos funcionam sem conta e sem ligação à internet.</p>
+        </section>
+
+        <section class="view" id="view-words" data-view="words" aria-labelledby="wordsTitle">
+          <div class="page-heading dictionary-heading">
+            <div><p class="eyebrow">DICIONÁRIO LOCAL · EXEMPLOS SIMPLES</p><h1 id="wordsTitle">Palavras para<br><em>levar contigo.</em></h1><p class="page-lede">Pesquisa em inglês ou português, guarda favoritas e ouve a pronúncia disponível no teu dispositivo.</p></div>
+            <div class="word-counter"><strong id="wordCount">0</strong><span>palavras<br>neste guia</span></div>
+          </div>
+          <div class="dictionary-layout">
+            <div class="dictionary-main">
+              <label class="search-box" for="wordSearch"><span aria-hidden="true">⌕</span><input id="wordSearch" type="search" placeholder="Pesquisar: focus, estudar, exam…" autocomplete="off"><kbd>/</kbd></label>
+              <div class="filter-row" aria-label="Filtrar vocabulário">
+                <button class="filter-chip is-selected" type="button" data-word-filter="all">Todas</button>
+                <button class="filter-chip" type="button" data-word-filter="university">Universidade</button>
+                <button class="filter-chip" type="button" data-word-filter="everyday">Dia a dia</button>
+                <button class="filter-chip" type="button" data-word-filter="connectors">Conectores</button>
+                <button class="filter-chip" type="button" data-word-filter="saved">Guardadas <span id="savedCount">0</span></button>
+              </div>
+              <div class="word-grid" id="wordGrid"></div>
+              <p class="empty-state" id="wordEmpty" hidden>Não encontrei essa palavra neste guia. Tenta outra pesquisa ou muda o filtro.</p>
+            </div>
+            <aside class="resources-card">
+              <p class="eyebrow">FONTES PARA CONTINUAR</p><h2>Boas referências<br>fazem diferença.</h2>
+              <p>O guia incluído funciona offline. Para consultar definições mais completas, estas fontes reconhecidas precisam de internet.</p>
+              <a href="https://dictionary.cambridge.org/" target="_blank" rel="noopener noreferrer">Cambridge Dictionary <span aria-hidden="true">↗</span></a>
+              <a href="https://www.oxfordlearnersdictionaries.com/" target="_blank" rel="noopener noreferrer">Oxford Learner’s Dictionaries <span aria-hidden="true">↗</span></a>
+              <a href="https://learnenglish.britishcouncil.org/" target="_blank" rel="noopener noreferrer">British Council LearnEnglish <span aria-hidden="true">↗</span></a>
+              <a href="https://www.coe.int/en/web/common-european-framework-reference-languages" target="_blank" rel="noopener noreferrer">Council of Europe · CEFR <span aria-hidden="true">↗</span></a>
+              <p class="source-footnote">As ligações abrem fora da aplicação e não são necessárias para estudar aqui.</p>
+            </aside>
+          </div>
+        </section>
+
+        <section class="view" id="view-progress" data-view="progress" aria-labelledby="progressTitle">
+          <div class="page-heading">
+            <p class="eyebrow">O TEU CAMINHO, AO TEU RITMO</p><h1 id="progressTitle">Cada passo<br><em>conta.</em></h1>
+            <p class="page-lede">O progresso fica guardado apenas neste dispositivo. Não há conta, ranking público nem pressão para manter uma sequência.</p>
+          </div>
+          <div class="progress-overview">
+            <article class="progress-feature">
+              <p class="eyebrow light-eyebrow">PONTOS DE PRÁTICA</p><strong class="big-xp" id="totalXp">0</strong><span>XP acumulados</span>
+              <div class="rank-row"><span id="rankName">Semente curiosa</span><span id="rankProgressLabel">0 / 100 XP</span></div>
+              <progress class="rank-progress" id="rankProgress" max="100" value="0" aria-label="Progresso para a próxima etapa"></progress>
+            </article>
+            <article class="stat-card"><span class="stat-mark">✦</span><strong id="completedLessonCount">0</strong><span>aulas concluídas</span></article>
+            <article class="stat-card"><span class="stat-mark">♡</span><strong id="favoriteCount">0</strong><span>palavras guardadas</span></article>
+            <article class="stat-card"><span class="stat-mark">◷</span><strong id="bestLevel">—</strong><span>nível estimado</span></article>
+          </div>
+          <section class="panel badges-panel">
+            <div class="section-label-row"><div><p class="eyebrow">CONQUISTAS SEM COMPETIÇÃO</p><h2>Pequenas celebrações</h2></div><span class="muted">Só tu vês isto</span></div>
+            <div class="badge-grid" id="badgeGrid"></div>
+          </section>
+          <div class="privacy-reset-row"><div><strong>Os teus dados são teus.</strong><p>Apagar o progresso remove apenas os dados guardados por esta aplicação neste navegador.</p></div><button class="button button-outline-danger" id="resetProgress" type="button">Apagar o meu progresso</button></div>
+        </section>
+
+        <section class="view" id="view-creator" data-view="creator" aria-labelledby="creatorTitle">
+          <div class="page-heading">
+            <p class="eyebrow">UM RECANTO FEITO COM CARINHO</p><h1 id="creatorTitle">A história por<br><em>detrás do Bloom.</em></h1>
+            <p class="page-lede">Uma ferramenta pequena para aprender com curiosidade, praticar juntos e crescer sem medo de errar.</p>
+          </div>
+          <section class="creator-card">
+            <div class="creator-message"><span class="creator-badge">UMA NOTA DO CRIADOR</span><h2>Feito por Dany<br><em>para te ajudar.</em></h2><p>Com muito carinho e dedicação. Que cada palavra nova seja um motivo para acreditar que consegues — e que aprender também pode ser uma coisa bonita.</p><span class="signature">Dany <span aria-hidden="true">✳</span></span></div>
+            <div class="mascot-stage" aria-label="Lumi, a pequena mascote do Bloom">
+              <span class="mascot-star star-a" aria-hidden="true">✦</span><span class="mascot-star star-b" aria-hidden="true">✧</span>
+              <svg class="mascot" viewBox="0 0 260 250" role="img" aria-labelledby="mascotTitle">
+                <title id="mascotTitle">Lumi, um pequeno vaga-lume sorridente</title>
+                <ellipse class="wing wing-left" cx="87" cy="100" rx="32" ry="53" transform="rotate(-35 87 100)"></ellipse>
+                <ellipse class="wing wing-right" cx="173" cy="100" rx="32" ry="53" transform="rotate(35 173 100)"></ellipse>
+                <path class="antenna" d="M106 65c-10-18-11-31-4-42M154 65c10-18 11-31 4-42"></path>
+                <circle class="antenna-dot" cx="101" cy="21" r="6"></circle><circle class="antenna-dot" cx="159" cy="21" r="6"></circle>
+                <ellipse class="mascot-body" cx="130" cy="139" rx="57" ry="63"></ellipse>
+                <ellipse class="mascot-belly" cx="130" cy="156" rx="31" ry="34"></ellipse>
+                <circle class="mascot-eye" cx="111" cy="121" r="5"></circle><circle class="mascot-eye" cx="149" cy="121" r="5"></circle>
+                <path class="mascot-smile" d="M119 137c6 8 16 8 22 0"></path>
+                <path class="mascot-tail" d="M130 197c-9 17-8 28 0 39 8-11 9-22 0-39z"></path>
+                <circle class="mascot-glow" cx="130" cy="207" r="22"></circle>
+              </svg>
+              <span class="mascot-caption">Lumi · a tua companheira de estudo</span>
+            </div>
+          </section>
+          <div class="creator-values">
+            <article class="panel"><span class="value-icon">◉</span><h3>Funciona sem conta</h3><p>Aulas, jogos e dicionário ficam no próprio conjunto de ficheiros. O progresso é guardado localmente no navegador.</p></article>
+            <article class="panel"><span class="value-icon">⌁</span><h3>Leve por escolha</h3><p>Sem bibliotecas, fontes remotas, anúncios, analytics ou áudio protegido por direitos de autor.</p></article>
+            <article class="panel"><span class="value-icon">✳</span><h3>Feito para praticar</h3><p>Explicações curtas, exemplos e perguntas de recuperação — não uma promessa de fluência instantânea.</p></article>
+          </div>
+          <section class="creator-share panel"><div><p class="eyebrow">QUERES ESTUDAR A DOIS?</p><h2>Partilha o Bloom.</h2><p>Um link precisa de um alojamento HTTPS. A aplicação não precisa de servidor de contas ou base de dados; também podes partilhar o pacote de ficheiros.</p></div><button class="button button-dark" type="button" id="creatorShare">Partilhar aplicação <span aria-hidden="true">↗</span></button></section>
+          <p class="disclaimer">Bloom English é uma ferramenta de estudo informal. O mini-teste não certifica o nível CEFR e a aplicação não substitui aulas, materiais da universidade ou orientação profissional.</p>
+        </section>
+      </main>
+    </div>
+
+    <nav class="mobile-nav" aria-label="Navegação principal">
+      <button class="mobile-nav-item is-current" type="button" data-go="home" aria-current="page"><span aria-hidden="true">⌂</span><small>Início</small></button>
+      <button class="mobile-nav-item" type="button" data-go="learn"><span aria-hidden="true">✦</span><small>Aulas</small></button>
+      <button class="mobile-nav-item" type="button" data-go="games"><span aria-hidden="true">◈</span><small>Jogos</small></button>
+      <button class="mobile-nav-item" type="button" data-go="words"><span aria-hidden="true">Aa</span><small>Palavras</small></button>
+      <button class="mobile-nav-item" type="button" data-go="progress"><span aria-hidden="true">↗</span><small>Dados</small></button>
+      <button class="mobile-nav-item" type="button" data-go="creator"><span aria-hidden="true">♡</span><small>Criador</small></button>
+    </nav>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <div class="modal-backdrop" id="assessmentModal" hidden>
+    <section class="modal-shell" role="dialog" aria-modal="true" aria-labelledby="assessmentTitle">
+      <div class="modal-header"><div><p class="eyebrow">MINI-DIAGNÓSTICO · 12 PERGUNTAS</p><h2 id="assessmentTitle">Descobre o teu ponto de partida</h2></div><button class="modal-close" type="button" data-close-modal aria-label="Fechar">×</button></div>
+      <div class="modal-content" id="assessmentContent"></div>
+    </section>
+  </div>
+
+  <div class="modal-backdrop" id="lessonModal" hidden>
+    <section class="modal-shell lesson-modal-shell" role="dialog" aria-modal="true" aria-labelledby="lessonModalTitle">
+      <div class="modal-header"><div><p class="eyebrow" id="lessonModalKicker">AULA CURTA</p><h2 id="lessonModalTitle">Aula</h2></div><button class="modal-close" type="button" data-close-modal aria-label="Fechar">×</button></div>
+      <div class="modal-content" id="lessonModalContent"></div>
+    </section>
+  </div>
+
+  <div class="modal-backdrop" id="installModal" hidden>
+    <section class="modal-shell install-modal-shell" role="dialog" aria-modal="true" aria-labelledby="installTitle">
+      <div class="modal-header"><div><p class="eyebrow">LEVA O BLOOM CONTIGO</p><h2 id="installTitle">Instalar ou guardar no ecrã</h2></div><button class="modal-close" type="button" data-close-modal aria-label="Fechar">×</button></div>
+      <div class="modal-content install-instructions">
+        <p>Depois de abrir a aplicação uma vez por um endereço HTTPS, podes adicioná-la ao ecrã inicial. O menu muda um pouco conforme o navegador:</p>
+        <article><strong>iPhone ou iPad · Safari</strong><p>Toca em <b>Partilhar</b> e escolhe <b>Adicionar ao ecrã principal</b>.</p></article>
+        <article><strong>Android · Chrome</strong><p>Abre o menu <b>⋮</b> e escolhe <b>Instalar app</b> ou <b>Adicionar ao ecrã principal</b>.</p></article>
+        <article><strong>Computador · Chrome/Edge</strong><p>Usa o ícone de instalação na barra de endereço ou o menu do navegador.</p></article>
+        <article><strong>Mac · Safari</strong><p>Nas versões recentes, procura <b>Ficheiro → Adicionar ao Dock</b>. Se não aparecer, podes guardar o endereço nos favoritos.</p></article>
+        <p class="source-footnote">A instalação offline fica disponível depois de o navegador guardar os ficheiros. O comportamento exacto depende da versão do sistema e do navegador.</p>
+      </div>
+    </section>
+  </div>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>
